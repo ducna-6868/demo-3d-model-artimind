@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03DE0E8C1030BDC1094F953F /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5781EE116F73634621C12 /* GlassCard.swift */; };
+		083934D0D60E75B79E84124F /* CompanionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C790D4ADC358D0FD0C542 /* CompanionMessage.swift */; };
+		2BB9F9EA3783199442DBEBA4 /* LiquidGlassIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9291BAEE948C4AB565BF5E /* LiquidGlassIconButton.swift */; };
+		32980FAA145AA3DD0568AC14 /* VoiceSelectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14AC3C8D86B999D6120A1DF /* VoiceSelectScreen.swift */; };
+		392FAC736E905F6D040A2221 /* LiquidGlassUnion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253F03D0839A710A018A057 /* LiquidGlassUnion.swift */; };
+		3A3D131676A545BDE9CAABD5 /* GlassTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D701F9D9C5FA53D2912045 /* GlassTypes.swift */; };
+		50BCC0176F33FEAF7F494285 /* VoiceReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0AFF7B1A154BC9D5696952 /* VoiceReference.swift */; };
+		6143406175B7A7C42FEAFF49 /* LovedOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4743A2C01ADB537F1C09C936 /* LovedOne.swift */; };
+		6C05D82AC59F4CE156067862 /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BE312535F9D2D15C3E6777 /* AppTab.swift */; };
+		6C13C3D446BC16AD0FB2B4C6 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AFF62498E1BF758220E3D /* HomeScreen.swift */; };
+		763797F2CFA26D4FA105B8A7 /* RecreateMemoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45657D3A83AAC0F83C5B0AF8 /* RecreateMemoryScreen.swift */; };
+		76C2AFB24A7BC234167616C0 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54267284F36FDC2FAA7E1A1D /* OnboardingScreen.swift */; };
+		7834A99369DF1855F3D924A1 /* LiquidGlassTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C808845C9A1C9377011D902F /* LiquidGlassTextButton.swift */; };
+		7C621A526DC5F2B727AB75AA /* GradientExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A0E50012CA9AE4A31A1211 /* GradientExtensions.swift */; };
+		8189A35C8CAEE1B9B3F78982 /* VoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1C2B5F460B858A4838005 /* VoiceService.swift */; };
+		8E8E644EA4F66736B45DDCBD /* LoadingGenerateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D41D982CE8D3D78356AC9 /* LoadingGenerateScreen.swift */; };
+		933278BBAF4648B3E42A4AFD /* Companion3DScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E6A1FBE861ADAD12EC3CCB /* Companion3DScreen.swift */; };
+		970F1678D9E555D96A16EEFB /* GlassButtonBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0AADA1AF486E6F4989572B /* GlassButtonBackgroundModifier.swift */; };
+		A4D7401B5ED5CC2C52B95344 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5FF0F767F80DC285662D9 /* SplashScreen.swift */; };
+		BC56BDF0ED2D842C06F2A971 /* ArtiMindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2691FFAE457751A7CDF938E /* ArtiMindApp.swift */; };
+		C5A50B12CC083FDD2B156238 /* UploadPhotoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0466EF4536F1B6A8837F1C /* UploadPhotoScreen.swift */; };
+		C7829EC6794EFB8FB59AF717 /* SelectPersonScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE683EF42E06415482B77F /* SelectPersonScreen.swift */; };
+		CCA0930903CCC3B843E99169 /* LovedOnesListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9369A4F87AE2247940A39369 /* LovedOnesListScreen.swift */; };
+		D29205BE71A7855F23C45D50 /* MainTabbarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA9D0DB727EA453A88254D /* MainTabbarScreen.swift */; };
+		DD57B22638612A39AA5EE96A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFCE23F4B07A68D3AFE5 /* RootView.swift */; };
+		EBF209C94F6113F40DCFECBE /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB5A414B8D9E7D925B4F60D /* SettingsScreen.swift */; };
+		FACF14D2DDB5B955EDC719CE /* FaceDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D322F2BB0D257191C11805 /* FaceDetectionService.swift */; };
+		FE29F3A0387678C046BA978B /* SceneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799755AA0B5CEE6E81AE3E04 /* SceneService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09D322F2BB0D257191C11805 /* FaceDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionService.swift; sourceTree = "<group>"; };
+		16D701F9D9C5FA53D2912045 /* GlassTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassTypes.swift; sourceTree = "<group>"; };
+		3253F03D0839A710A018A057 /* LiquidGlassUnion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassUnion.swift; sourceTree = "<group>"; };
+		45657D3A83AAC0F83C5B0AF8 /* RecreateMemoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecreateMemoryScreen.swift; sourceTree = "<group>"; };
+		4743A2C01ADB537F1C09C936 /* LovedOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovedOne.swift; sourceTree = "<group>"; };
+		4A0466EF4536F1B6A8837F1C /* UploadPhotoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoScreen.swift; sourceTree = "<group>"; };
+		54267284F36FDC2FAA7E1A1D /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		5FB5A414B8D9E7D925B4F60D /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		60A0E50012CA9AE4A31A1211 /* GradientExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientExtensions.swift; sourceTree = "<group>"; };
+		62E6A1FBE861ADAD12EC3CCB /* Companion3DScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companion3DScreen.swift; sourceTree = "<group>"; };
+		703289C37FBC942DC255FC64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		783C790D4ADC358D0FD0C542 /* CompanionMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionMessage.swift; sourceTree = "<group>"; };
+		799755AA0B5CEE6E81AE3E04 /* SceneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneService.swift; sourceTree = "<group>"; };
+		82CE683EF42E06415482B77F /* SelectPersonScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPersonScreen.swift; sourceTree = "<group>"; };
+		851AFF62498E1BF758220E3D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		8F9291BAEE948C4AB565BF5E /* LiquidGlassIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassIconButton.swift; sourceTree = "<group>"; };
+		91D1C2B5F460B858A4838005 /* VoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceService.swift; sourceTree = "<group>"; };
+		9369A4F87AE2247940A39369 /* LovedOnesListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovedOnesListScreen.swift; sourceTree = "<group>"; };
+		9DF5FF0F767F80DC285662D9 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		ACDA9D0DB727EA453A88254D /* MainTabbarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarScreen.swift; sourceTree = "<group>"; };
+		AD0AFF7B1A154BC9D5696952 /* VoiceReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceReference.swift; sourceTree = "<group>"; };
+		B05D41D982CE8D3D78356AC9 /* LoadingGenerateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingGenerateScreen.swift; sourceTree = "<group>"; };
+		BB0AADA1AF486E6F4989572B /* GlassButtonBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassButtonBackgroundModifier.swift; sourceTree = "<group>"; };
+		BB4C3143B4626FA715D5FBDD /* ArtiMind.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ArtiMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C14AC3C8D86B999D6120A1DF /* VoiceSelectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSelectScreen.swift; sourceTree = "<group>"; };
+		C4BE312535F9D2D15C3E6777 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
+		C808845C9A1C9377011D902F /* LiquidGlassTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassTextButton.swift; sourceTree = "<group>"; };
+		CE54CFCE23F4B07A68D3AFE5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		D2691FFAE457751A7CDF938E /* ArtiMindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtiMindApp.swift; sourceTree = "<group>"; };
+		E2A5781EE116F73634621C12 /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0519F3DDF823A7B42A7CFD1E /* ArtiMind */ = {
+			isa = PBXGroup;
+			children = (
+				D2691FFAE457751A7CDF938E /* ArtiMindApp.swift */,
+				703289C37FBC942DC255FC64 /* Info.plist */,
+				CE54CFCE23F4B07A68D3AFE5 /* RootView.swift */,
+				3A04CFFD157DD246093143D5 /* Extensions */,
+				355D635DDF93AC25075ABFDD /* Models */,
+				3D046B95BC8A4078948CF950 /* Navigation */,
+				08257579F989361DD7FFC94B /* Screens */,
+				F869F7939BAC3FACC60FFBD3 /* Services */,
+				A7984F6711AEE23253BD7507 /* Shared */,
+			);
+			path = ArtiMind;
+			sourceTree = "<group>";
+		};
+		063DE955FEDA551E30888E89 /* SelectPerson */ = {
+			isa = PBXGroup;
+			children = (
+				82CE683EF42E06415482B77F /* SelectPersonScreen.swift */,
+			);
+			path = SelectPerson;
+			sourceTree = "<group>";
+		};
+		08257579F989361DD7FFC94B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				59B0382A6EB1F94490E46A9F /* Companion3D */,
+				C4582BE717DE2305ECC6A451 /* Home */,
+				EBBF094A1B7551202B78D78B /* Loading */,
+				633315F38AFECDCEA04265EE /* Onboarding */,
+				0F4E7D98EE0E997275F68AF8 /* RecreateMemory */,
+				063DE955FEDA551E30888E89 /* SelectPerson */,
+				DAA54133A60631E090C19041 /* Splash */,
+				DE94C75B5F79149974EAB3E6 /* UploadPhoto */,
+				8FA5C504C3F1255F874E46C5 /* VoiceSelect */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		0F4E7D98EE0E997275F68AF8 /* RecreateMemory */ = {
+			isa = PBXGroup;
+			children = (
+				45657D3A83AAC0F83C5B0AF8 /* RecreateMemoryScreen.swift */,
+			);
+			path = RecreateMemory;
+			sourceTree = "<group>";
+		};
+		355D635DDF93AC25075ABFDD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				783C790D4ADC358D0FD0C542 /* CompanionMessage.swift */,
+				4743A2C01ADB537F1C09C936 /* LovedOne.swift */,
+				AD0AFF7B1A154BC9D5696952 /* VoiceReference.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3A04CFFD157DD246093143D5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				60A0E50012CA9AE4A31A1211 /* GradientExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3D046B95BC8A4078948CF950 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C4BE312535F9D2D15C3E6777 /* AppTab.swift */,
+				ACDA9D0DB727EA453A88254D /* MainTabbarScreen.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		59B0382A6EB1F94490E46A9F /* Companion3D */ = {
+			isa = PBXGroup;
+			children = (
+				62E6A1FBE861ADAD12EC3CCB /* Companion3DScreen.swift */,
+			);
+			path = Companion3D;
+			sourceTree = "<group>";
+		};
+		633315F38AFECDCEA04265EE /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				54267284F36FDC2FAA7E1A1D /* OnboardingScreen.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		87ABF78014F620527B26DA39 /* LiquidGlass */ = {
+			isa = PBXGroup;
+			children = (
+				BB0AADA1AF486E6F4989572B /* GlassButtonBackgroundModifier.swift */,
+				E2A5781EE116F73634621C12 /* GlassCard.swift */,
+				16D701F9D9C5FA53D2912045 /* GlassTypes.swift */,
+				8F9291BAEE948C4AB565BF5E /* LiquidGlassIconButton.swift */,
+				C808845C9A1C9377011D902F /* LiquidGlassTextButton.swift */,
+				3253F03D0839A710A018A057 /* LiquidGlassUnion.swift */,
+			);
+			path = LiquidGlass;
+			sourceTree = "<group>";
+		};
+		8D350DBB94C001395472D969 = {
+			isa = PBXGroup;
+			children = (
+				0519F3DDF823A7B42A7CFD1E /* ArtiMind */,
+				A07C77E1B06DCC5AB48FF235 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8FA5C504C3F1255F874E46C5 /* VoiceSelect */ = {
+			isa = PBXGroup;
+			children = (
+				C14AC3C8D86B999D6120A1DF /* VoiceSelectScreen.swift */,
+			);
+			path = VoiceSelect;
+			sourceTree = "<group>";
+		};
+		A07C77E1B06DCC5AB48FF235 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB4C3143B4626FA715D5FBDD /* ArtiMind.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7984F6711AEE23253BD7507 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				87ABF78014F620527B26DA39 /* LiquidGlass */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C4582BE717DE2305ECC6A451 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				851AFF62498E1BF758220E3D /* HomeScreen.swift */,
+				9369A4F87AE2247940A39369 /* LovedOnesListScreen.swift */,
+				5FB5A414B8D9E7D925B4F60D /* SettingsScreen.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DAA54133A60631E090C19041 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9DF5FF0F767F80DC285662D9 /* SplashScreen.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		DE94C75B5F79149974EAB3E6 /* UploadPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				4A0466EF4536F1B6A8837F1C /* UploadPhotoScreen.swift */,
+			);
+			path = UploadPhoto;
+			sourceTree = "<group>";
+		};
+		EBBF094A1B7551202B78D78B /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				B05D41D982CE8D3D78356AC9 /* LoadingGenerateScreen.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		F869F7939BAC3FACC60FFBD3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				09D322F2BB0D257191C11805 /* FaceDetectionService.swift */,
+				799755AA0B5CEE6E81AE3E04 /* SceneService.swift */,
+				91D1C2B5F460B858A4838005 /* VoiceService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C4213E5A720CA9315CC3782 /* ArtiMind */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47C8F24B0A1AE6A31B151C4E /* Build configuration list for PBXNativeTarget "ArtiMind" */;
+			buildPhases = (
+				4FFB0D7C9EBFEE845D3F600F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArtiMind;
+			packageProductDependencies = (
+			);
+			productName = ArtiMind;
+			productReference = BB4C3143B4626FA715D5FBDD /* ArtiMind.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE898FCE7DE1F32C4B6C862F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					9C4213E5A720CA9315CC3782 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CCCFFF29C93788C6C4BAE8CB /* Build configuration list for PBXProject "ArtiMind" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8D350DBB94C001395472D969;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A07C77E1B06DCC5AB48FF235 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C4213E5A720CA9315CC3782 /* ArtiMind */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4FFB0D7C9EBFEE845D3F600F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C05D82AC59F4CE156067862 /* AppTab.swift in Sources */,
+				BC56BDF0ED2D842C06F2A971 /* ArtiMindApp.swift in Sources */,
+				933278BBAF4648B3E42A4AFD /* Companion3DScreen.swift in Sources */,
+				083934D0D60E75B79E84124F /* CompanionMessage.swift in Sources */,
+				FACF14D2DDB5B955EDC719CE /* FaceDetectionService.swift in Sources */,
+				970F1678D9E555D96A16EEFB /* GlassButtonBackgroundModifier.swift in Sources */,
+				03DE0E8C1030BDC1094F953F /* GlassCard.swift in Sources */,
+				3A3D131676A545BDE9CAABD5 /* GlassTypes.swift in Sources */,
+				7C621A526DC5F2B727AB75AA /* GradientExtensions.swift in Sources */,
+				6C13C3D446BC16AD0FB2B4C6 /* HomeScreen.swift in Sources */,
+				2BB9F9EA3783199442DBEBA4 /* LiquidGlassIconButton.swift in Sources */,
+				7834A99369DF1855F3D924A1 /* LiquidGlassTextButton.swift in Sources */,
+				392FAC736E905F6D040A2221 /* LiquidGlassUnion.swift in Sources */,
+				8E8E644EA4F66736B45DDCBD /* LoadingGenerateScreen.swift in Sources */,
+				6143406175B7A7C42FEAFF49 /* LovedOne.swift in Sources */,
+				CCA0930903CCC3B843E99169 /* LovedOnesListScreen.swift in Sources */,
+				D29205BE71A7855F23C45D50 /* MainTabbarScreen.swift in Sources */,
+				76C2AFB24A7BC234167616C0 /* OnboardingScreen.swift in Sources */,
+				763797F2CFA26D4FA105B8A7 /* RecreateMemoryScreen.swift in Sources */,
+				DD57B22638612A39AA5EE96A /* RootView.swift in Sources */,
+				FE29F3A0387678C046BA978B /* SceneService.swift in Sources */,
+				C7829EC6794EFB8FB59AF717 /* SelectPersonScreen.swift in Sources */,
+				EBF209C94F6113F40DCFECBE /* SettingsScreen.swift in Sources */,
+				A4D7401B5ED5CC2C52B95344 /* SplashScreen.swift in Sources */,
+				C5A50B12CC083FDD2B156238 /* UploadPhotoScreen.swift in Sources */,
+				50BCC0176F33FEAF7F494285 /* VoiceReference.swift in Sources */,
+				32980FAA145AA3DD0568AC14 /* VoiceSelectScreen.swift in Sources */,
+				8189A35C8CAEE1B9B3F78982 /* VoiceService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		042EBE57A9DF31B785A481A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		8247E0F061C391F864216399 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		8C40AB2CB39CEE7B52A8A0A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = ArtiMind/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artimind.demo;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BC10712D8D33CE64B06A2C88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = ArtiMind/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artimind.demo;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47C8F24B0A1AE6A31B151C4E /* Build configuration list for PBXNativeTarget "ArtiMind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC10712D8D33CE64B06A2C88 /* Debug */,
+				8C40AB2CB39CEE7B52A8A0A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CCCFFF29C93788C6C4BAE8CB /* Build configuration list for PBXProject "ArtiMind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				042EBE57A9DF31B785A481A7 /* Debug */,
+				8247E0F061C391F864216399 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE898FCE7DE1F32C4B6C862F /* Project object */;
+}

@@ -1,0 +1,35 @@
+name: ArtiMind
+options:
+  bundleIdPrefix: com.artimind
+  deploymentTarget:
+    iOS: "26.0"
+  xcodeVersion: "26.0"
+  minimumXcodeGenVersion: "2.0.0"
+settings:
+  SWIFT_VERSION: "6.0"
+  IPHONEOS_DEPLOYMENT_TARGET: "26.0"
+targets:
+  ArtiMind:
+    type: application
+    platform: iOS
+    sources:
+      - path: ArtiMind
+        excludes:
+          - "Resources/**"
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.artimind.demo
+      INFOPLIST_FILE: ArtiMind/Info.plist
+      MARKETING_VERSION: "1.0.0"
+      CURRENT_PROJECT_VERSION: "1"
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      CODE_SIGN_STYLE: Automatic
+      SWIFT_STRICT_CONCURRENCY: complete
+      ENABLE_USER_SCRIPT_SANDBOXING: NO
+      DEVELOPMENT_TEAM: ""
+    resources:
+      - path: ArtiMind/Resources/Assets.xcassets
+        buildPhase: resources
+      - path: ArtiMind/Resources/riggedmesh.glb
+        buildPhase: resources
+      - path: ArtiMind/Resources/VoiceReference
+        buildPhase: resources
