@@ -31,7 +31,7 @@ struct RecreateMemoryScreen: View {
                             .foregroundStyle(.primary)
                             .frame(maxWidth: .infinity, alignment: .leading)
 
-                        Text("Share memories so your companion feels real")
+                        Text("The more you share, the more they feel like home.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -39,9 +39,9 @@ struct RecreateMemoryScreen: View {
                     .padding(.horizontal, 24)
                     .padding(.top, 20)
 
-                    // Upload Media section
+                    // Photos of moments section
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Upload Media")
+                        Text("Photos of moments")
                             .font(.headline)
                             .fontWeight(.semibold)
                             .foregroundStyle(.primary)
@@ -62,26 +62,27 @@ struct RecreateMemoryScreen: View {
                                                     .strokeBorder(
                                                         style: StrokeStyle(lineWidth: 2, dash: [8, 6])
                                                     )
-                                                    .foregroundStyle(.secondary.opacity(0.4))
+                                                    .foregroundStyle(.white.opacity(0.25))
                                                     .frame(height: 140)
 
                                                 VStack(spacing: 10) {
                                                     Image(systemName: "plus.circle")
                                                         .font(.system(size: 36, weight: .light))
-                                                        .foregroundStyle(.secondary)
+                                                        .foregroundStyle(.white.opacity(0.75))
 
-                                                    Text("Add Photos")
+                                                    Text("Add photos")
                                                         .font(.subheadline)
-                                                        .foregroundStyle(.secondary)
+                                                        .foregroundStyle(.white.opacity(0.75))
                                                 }
                                             }
 
-                                            Text("Add photos you shared together — up to 10 images")
+                                            Text("Moments you shared together · up to 10 photos")
                                                 .font(.caption)
-                                                .foregroundStyle(.secondary.opacity(0.7))
+                                                .foregroundStyle(.white.opacity(0.55))
                                                 .multilineTextAlignment(.center)
                                         }
                                     }
+                                    .tint(Color.white)
                                 } else {
                                     // Thumbnail grid + add more
                                     LazyVGrid(columns: thumbnailColumns, spacing: 8) {
@@ -116,14 +117,15 @@ struct RecreateMemoryScreen: View {
                                                         .strokeBorder(
                                                             style: StrokeStyle(lineWidth: 1.5, dash: [6, 4])
                                                         )
-                                                        .foregroundStyle(.secondary.opacity(0.4))
+                                                        .foregroundStyle(.white.opacity(0.25))
                                                         .frame(height: 90)
 
                                                     Image(systemName: "plus")
                                                         .font(.title2)
-                                                        .foregroundStyle(.secondary)
+                                                        .foregroundStyle(.white.opacity(0.75))
                                                 }
                                             }
+                                            .tint(Color.white)
                                         }
                                     }
                                 }
@@ -132,9 +134,9 @@ struct RecreateMemoryScreen: View {
                         .padding(.horizontal, 24)
                     }
 
-                    // Tell us something section
+                    // Tell us about them section
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Tell us something about you two")
+                        Text("Tell us about them")
                             .font(.headline)
                             .fontWeight(.semibold)
                             .foregroundStyle(.primary)
@@ -145,13 +147,15 @@ struct RecreateMemoryScreen: View {
                                 .focused($isTextFocused)
                                 .frame(minHeight: 140)
                                 .scrollContentBackground(.hidden)
+                                .background(Color.clear)
                                 .font(.body)
-                                .foregroundStyle(.primary)
+                                .foregroundStyle(.white)
+                                .tint(.white)
                                 .overlay(alignment: .topLeading) {
                                     if lovedOne.memoryText.isEmpty {
-                                        Text("Share a favorite memory, an inside joke, or something they always said…")
+                                        Text("A memory you'll never forget — maybe a story, a joke, or a saying only they used…")
                                             .font(.body)
-                                            .foregroundStyle(.secondary.opacity(0.6))
+                                            .foregroundStyle(.white.opacity(0.35))
                                             .allowsHitTesting(false)
                                             .padding(.top, 8)
                                             .padding(.leading, 4)
@@ -162,14 +166,22 @@ struct RecreateMemoryScreen: View {
                     }
 
                     // Continue button
-                    LiquidGlassTextButton(
-                        title: "Continue",
-                        icon: "arrow.right",
-                        font: .headline,
-                        fontWeight: .semibold,
-                        foregroundColor: .primary
-                    ) {
+                    Button {
                         navigateToLoading = true
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "arrow.right")
+                            Text("Continue")
+                                .fontWeight(.semibold)
+                        }
+                        .font(.headline)
+                        .foregroundStyle(.black)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color.goldAccent)
+                        )
                     }
                     .padding(.horizontal, 24)
                     .padding(.bottom, 40)

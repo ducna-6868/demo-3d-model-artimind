@@ -7,7 +7,6 @@ struct VoiceSelectScreen: View {
 
     @State private var voiceService = VoiceService()
     @State private var library: [VoiceEmotion: [VoiceReference]] = [:]
-    @State private var selectedEmotion: VoiceEmotion? = nil
     @State private var selectedRelationship: Relationship = .father
     @State private var navigateToRecreateMemory = false
 
@@ -17,11 +16,6 @@ struct VoiceSelectScreen: View {
     @State private var uploadedFileURL: URL?
     @State private var uploadedVoiceName = ""
     @State private var userAddedVoices: [VoiceReference] = []
-
-    private let columns = [
-        GridItem(.flexible(), spacing: 12),
-        GridItem(.flexible(), spacing: 12)
-    ]
 
     var body: some View {
         ZStack {
@@ -38,12 +32,12 @@ struct VoiceSelectScreen: View {
 
                     Text("Pick the tone that feels like them")
                         .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white.opacity(0.6))
                 }
                 .padding(.top, 20)
                 .padding(.bottom, 16)
 
-                libraryTab
+                emotionListView
 
                 Spacer(minLength: 0)
 
@@ -135,102 +129,43 @@ struct VoiceSelectScreen: View {
         }
     }
 
-    // MARK: - Library Tab
+    // MARK: - Emotion List View
 
-    @ViewBuilder
-    private var libraryTab: some View {
-        if let emotion = selectedEmotion {
-            voiceListView(for: emotion)
-        } else {
-            emotionGridView
-        }
-    }
-
-    private var emotionGridView: some View {
+    private var emotionListView: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: 12) {
+            LazyVStack(spacing: 10) {
                 ForEach(VoiceEmotion.allCases) { emotion in
-                    EmotionCard(emotion: emotion, hasVoices: library[emotion] != nil) {
-                        withAnimation(.easeInOut(duration: 0.2)) {
-                            selectedEmotion = emotion
-                        }
+                    if let voice = voice(for: emotion, relationship: selectedRelationship) {
+                        VoiceCardRow(
+                            emotion: emotion,
+                            voice: voice,
+                            isSelected: lovedOne.selectedVoice == voice,
+                            isPlaying: voiceService.isPlaying && voiceService.currentVoice == voice,
+                            onPlayToggle: {
+                                if voiceService.isPlaying && voiceService.currentVoice == voice {
+                                    voiceService.stop()
+                                } else {
+                                    voiceService.play(voice)
+                                }
+                            },
+                            onSelect: {
+                                lovedOne.selectedVoice = voice
+                                voiceService.stop()
+                            }
+                        )
                     }
                 }
-                AddVoiceCard {
-                    showUploadSheet = true
-                }
+                AddVoiceCard { showUploadSheet = true }
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 8)
         }
     }
 
-    private func voiceListView(for emotion: VoiceEmotion) -> some View {
-        VStack(spacing: 0) {
-            // Back button + emotion title
-            HStack {
-                Button {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        selectedEmotion = nil
-                    }
-                } label: {
-                    HStack(spacing: 6) {
-                        Image(systemName: "chevron.left")
-                            .font(.subheadline.weight(.semibold))
-                        Text("Back")
-                            .font(.subheadline)
-                    }
-                    .foregroundStyle(.primary)
-                }
+    // MARK: - Helpers
 
-                Spacer()
-
-                Label(emotion.displayName, systemImage: emotion.icon)
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.secondary)
-            }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 12)
-
-            ScrollView {
-                VStack(spacing: 10) {
-                    let voices = (library[emotion] ?? []).filter { $0.relationship == selectedRelationship }
-
-                    if voices.isEmpty {
-                        HStack {
-                            Image(systemName: "waveform.slash")
-                                .foregroundStyle(.gray)
-                            Text("No voices available for this relationship")
-                                .font(.subheadline)
-                                .foregroundStyle(.gray)
-                        }
-                        .padding(16)
-                        .frame(maxWidth: .infinity)
-                        .background(RoundedRectangle(cornerRadius: 16).fill(Color.cardDark))
-                        .padding(.horizontal, 20)
-                    } else {
-                        ForEach(voices) { voice in
-                            VoiceRow(
-                                voice: voice,
-                                isSelected: lovedOne.selectedVoice == voice,
-                                isPlaying: voiceService.isPlaying && voiceService.currentVoice == voice
-                            ) {
-                                if voiceService.isPlaying && voiceService.currentVoice == voice {
-                                    voiceService.stop()
-                                } else {
-                                    voiceService.play(voice)
-                                }
-                            } onSelect: {
-                                lovedOne.selectedVoice = voice
-                                voiceService.stop()
-                            }
-                            .padding(.horizontal, 20)
-                        }
-                    }
-                }
-                .padding(.bottom, 8)
-            }
-        }
+    private func voice(for emotion: VoiceEmotion, relationship: Relationship) -> VoiceReference? {
+        library[emotion]?.first(where: { $0.relationship == relationship })
     }
 
     // MARK: - Upload Helpers
@@ -267,44 +202,72 @@ struct VoiceSelectScreen: View {
 
 // MARK: - Subviews
 
-private struct EmotionCard: View {
+private struct VoiceCardRow: View {
     let emotion: VoiceEmotion
-    let hasVoices: Bool
-    let onTap: () -> Void
+    let voice: VoiceReference
+    let isSelected: Bool
+    let isPlaying: Bool
+    let onPlayToggle: () -> Void
+    let onSelect: () -> Void
 
     var body: some View {
-        Button(action: onTap) {
-            VStack(spacing: 6) {
+        Button(action: onSelect) {
+            HStack(spacing: 14) {
+                // Left: play button (separate gesture)
+                Button(action: onPlayToggle) {
+                    Image(systemName: isPlaying ? "stop.fill" : "play.fill")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(.white)
+                        .frame(width: 40, height: 40)
+                        .background(
+                            Circle().fill(Color.black.opacity(0.35))
+                        )
+                }
+                .buttonStyle(.plain)
+
+                // Middle: emotion name
                 Text(emotion.displayName)
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.white)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .shadow(color: .black.opacity(0.3), radius: 2, y: 1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                // Right: selection indicator
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .font(.title3)
+                    .foregroundStyle(isSelected ? Color.goldAccent : .white.opacity(0.55))
             }
-            .padding(.vertical, 24)
-            .padding(.horizontal, 12)
-            .frame(maxWidth: .infinity, minHeight: 88)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
             .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(
-                        LinearGradient(
-                            colors: [
-                                Color(hex: emotion.color.light).opacity(0.20),
-                                Color(hex: emotion.color.dark).opacity(0.12)
-                            ],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
+                ZStack {
+                    // Solid dark base — ensures contrast with white text
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color.cardDark)
+
+                    // Emotion-tinted gradient layer
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    Color(hex: emotion.color.light).opacity(0.35),
+                                    Color(hex: emotion.color.dark).opacity(0.15)
+                                ],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
                         )
-                    )
+                }
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color(hex: emotion.color.light).opacity(0.25), lineWidth: 0.5)
+                    .stroke(
+                        isSelected ? Color.goldAccent : Color(hex: emotion.color.light).opacity(0.4),
+                        lineWidth: isSelected ? 2 : 1
+                    )
             )
-            .opacity(hasVoices ? 1.0 : 0.4)
         }
-        .disabled(!hasVoices)
+        .buttonStyle(.plain)
     }
 }
 
@@ -313,83 +276,37 @@ private struct AddVoiceCard: View {
 
     var body: some View {
         Button(action: onTap) {
-            VStack(spacing: 10) {
+            HStack(spacing: 14) {
                 Image(systemName: "plus.circle.fill")
-                    .font(.system(size: 28, weight: .light))
+                    .font(.system(size: 22, weight: .light))
                     .foregroundStyle(Color.goldAccent)
+                    .frame(width: 40, height: 40)
 
-                Text("Add Voice")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.white)
-
-                Text("Upload your own recording")
-                    .font(.caption2)
-                    .foregroundStyle(.gray)
-                    .multilineTextAlignment(.center)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Add Voice")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.white)
+                    Text("Upload your own recording")
+                        .font(.caption)
+                        .foregroundStyle(.white.opacity(0.7))
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .padding(.vertical, 20)
-            .padding(.horizontal, 12)
-            .frame(maxWidth: .infinity, minHeight: 88)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.goldAccent.opacity(0.08))
+                    .fill(Color.goldAccent.opacity(0.18))
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
                     .strokeBorder(
-                        Color.goldAccent.opacity(0.4),
+                        Color.goldAccent.opacity(0.6),
                         style: StrokeStyle(lineWidth: 1, dash: [6, 4])
                     )
             )
         }
-    }
-}
-
-private struct VoiceRow: View {
-    let voice: VoiceReference
-    let isSelected: Bool
-    let isPlaying: Bool
-    let onPlayToggle: () -> Void
-    let onSelect: () -> Void
-
-    var body: some View {
-        HStack(spacing: 14) {
-            Button(action: onPlayToggle) {
-                Image(systemName: isPlaying ? "stop.fill" : "play.fill")
-                    .font(.title3)
-                    .foregroundStyle(.white)
-                    .frame(width: 40, height: 40)
-                    .background(Color.white.opacity(0.15), in: Circle())
-            }
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(voice.emotion.displayName)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.white)
-
-                Text(voice.relationship.displayName)
-                    .font(.caption)
-                    .foregroundStyle(.gray)
-            }
-
-            Spacer()
-
-            Button(action: onSelect) {
-                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                    .font(.title2)
-                    .foregroundStyle(isSelected ? .green : .gray)
-            }
-        }
-        .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 14)
-                .fill(Color.cardDark)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 14)
-                .stroke(isSelected ? Color.green.opacity(0.6) : Color.clear, lineWidth: 2)
-        )
+        .buttonStyle(.plain)
     }
 }
 

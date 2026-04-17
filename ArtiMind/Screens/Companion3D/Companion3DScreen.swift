@@ -94,6 +94,7 @@ struct Companion3DScreen: View {
     @State private var holdStartTime: Date? = nil
     @State private var dragOffset: CGSize = .zero
     @State private var presencePulse: Bool = false
+    @State private var isTranscribing = false
     @FocusState private var isInputFocused: Bool
 
     private let mockResponses = [
@@ -104,6 +105,19 @@ struct Companion3DScreen: View {
         "Every day with you was a gift.",
         "I love hearing your voice.",
         "Just knowing you're here means everything."
+    ]
+
+    private let mockSTTTranscripts = [
+        "I've been missing you lately.",
+        "Today reminded me of something you used to say.",
+        "I just wanted to hear your voice.",
+        "Do you remember that summer at the lake?",
+        "I hope you're proud of who I'm becoming.",
+        "I wish you could see this.",
+        "I still catch myself wanting to call you.",
+        "Tell me one of our stories again.",
+        "Life has been hard without you here.",
+        "I saw something today that made me think of you."
     ]
 
     var body: some View {
@@ -253,6 +267,7 @@ struct Companion3DScreen: View {
                 LazyVStack(spacing: 12) {
                     ForEach(messages) { msg in
                         HStack(alignment: .bottom, spacing: 8) {
+
                             if msg.isUser {
                                 Spacer(minLength: 40)
                             } else {
@@ -300,6 +315,22 @@ struct Companion3DScreen: View {
                             }
                         }
                     }
+
+                    if isTranscribing {
+                        HStack(spacing: 6) {
+                            Image(systemName: "waveform")
+                                .symbolEffect(.variableColor.iterative)
+                            Text("Transcribing…")
+                                .font(.caption)
+                        }
+                        .foregroundStyle(.white.opacity(0.55))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .glassBackground(shape: .capsule)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.horizontal, 16)
+                        .id("transcribing")
+                    }
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 10)
@@ -310,6 +341,13 @@ struct Companion3DScreen: View {
                 if let last = messages.last {
                     withAnimation(.easeOut(duration: 0.2)) {
                         proxy.scrollTo(last.id, anchor: .bottom)
+                    }
+                }
+            }
+            .onChange(of: isTranscribing) { _, newValue in
+                if newValue {
+                    withAnimation(.easeOut(duration: 0.2)) {
+                        proxy.scrollTo("transcribing", anchor: .bottom)
                     }
                 }
             }
@@ -646,15 +684,18 @@ struct Companion3DScreen: View {
 
         guard duration >= 0.5 else { return }
 
-        let seconds = Int(duration)
         if !showChat {
             withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) { showChat = true }
         }
-        messages.append(CompanionMessage(content: "", isUser: true, voiceDurationSeconds: seconds))
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            let resp = mockResponses.randomElement() ?? "I hear you."
-            withAnimation { messages.append(CompanionMessage(content: resp, isUser: false)) }
+        withAnimation(.easeOut(duration: 0.15)) { isTranscribing = true }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            let transcript = mockSTTTranscripts.randomElement() ?? "I wanted to tell you something."
+            messages.append(CompanionMessage(content: transcript, isUser: true))
+            withAnimation { isTranscribing = false }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                let resp = mockResponses.randomElement() ?? "I hear you."
+                withAnimation { messages.append(CompanionMessage(content: resp, isUser: false)) }
+            }
         }
     }
 
@@ -667,15 +708,18 @@ struct Companion3DScreen: View {
         }
         holdStartTime = nil
 
-        let seconds = max(1, Int(duration))
         if !showChat {
             withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) { showChat = true }
         }
-        messages.append(CompanionMessage(content: "", isUser: true, voiceDurationSeconds: seconds))
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            let resp = mockResponses.randomElement() ?? "I hear you."
-            withAnimation { messages.append(CompanionMessage(content: resp, isUser: false)) }
+        withAnimation(.easeOut(duration: 0.15)) { isTranscribing = true }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            let transcript = mockSTTTranscripts.randomElement() ?? "I wanted to tell you something."
+            messages.append(CompanionMessage(content: transcript, isUser: true))
+            withAnimation { isTranscribing = false }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                let resp = mockResponses.randomElement() ?? "I hear you."
+                withAnimation { messages.append(CompanionMessage(content: resp, isUser: false)) }
+            }
         }
     }
 
