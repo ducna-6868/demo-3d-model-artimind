@@ -2,3 +2,7 @@
 DerivedData/
 *.xcuserdata
 build/
+.claude/
+.omc/
+xcuserdata/
+*.xcuserstate

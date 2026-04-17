@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013CF135AC7575923B315024 /* companion.scn in Resources */ = {isa = PBXBuildFile; fileRef = 02687768C924A7793F818C98 /* companion.scn */; };
 		03DE0E8C1030BDC1094F953F /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5781EE116F73634621C12 /* GlassCard.swift */; };
 		083934D0D60E75B79E84124F /* CompanionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C790D4ADC358D0FD0C542 /* CompanionMessage.swift */; };
 		2BB9F9EA3783199442DBEBA4 /* LiquidGlassIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9291BAEE948C4AB565BF5E /* LiquidGlassIconButton.swift */; };
@@ -27,19 +28,23 @@
 		970F1678D9E555D96A16EEFB /* GlassButtonBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0AADA1AF486E6F4989572B /* GlassButtonBackgroundModifier.swift */; };
 		A4D7401B5ED5CC2C52B95344 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5FF0F767F80DC285662D9 /* SplashScreen.swift */; };
 		BC56BDF0ED2D842C06F2A971 /* ArtiMindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2691FFAE457751A7CDF938E /* ArtiMindApp.swift */; };
+		BED8A322F74CBE2B411F1A72 /* model_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AAA1AFE011DB57889F40F26 /* model_texture.png */; };
 		C5A50B12CC083FDD2B156238 /* UploadPhotoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0466EF4536F1B6A8837F1C /* UploadPhotoScreen.swift */; };
 		C7829EC6794EFB8FB59AF717 /* SelectPersonScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE683EF42E06415482B77F /* SelectPersonScreen.swift */; };
 		CCA0930903CCC3B843E99169 /* LovedOnesListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9369A4F87AE2247940A39369 /* LovedOnesListScreen.swift */; };
 		D29205BE71A7855F23C45D50 /* MainTabbarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA9D0DB727EA453A88254D /* MainTabbarScreen.swift */; };
 		DD57B22638612A39AA5EE96A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFCE23F4B07A68D3AFE5 /* RootView.swift */; };
+		E4F4856EEF099C08009B18CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77988D857C9502DB62E60C70 /* Assets.xcassets */; };
 		EBF209C94F6113F40DCFECBE /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB5A414B8D9E7D925B4F60D /* SettingsScreen.swift */; };
 		FACF14D2DDB5B955EDC719CE /* FaceDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D322F2BB0D257191C11805 /* FaceDetectionService.swift */; };
 		FE29F3A0387678C046BA978B /* SceneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799755AA0B5CEE6E81AE3E04 /* SceneService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02687768C924A7793F818C98 /* companion.scn */ = {isa = PBXFileReference; path = companion.scn; sourceTree = "<group>"; };
 		09D322F2BB0D257191C11805 /* FaceDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionService.swift; sourceTree = "<group>"; };
 		16D701F9D9C5FA53D2912045 /* GlassTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassTypes.swift; sourceTree = "<group>"; };
+		1AAA1AFE011DB57889F40F26 /* model_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = model_texture.png; sourceTree = "<group>"; };
 		3253F03D0839A710A018A057 /* LiquidGlassUnion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassUnion.swift; sourceTree = "<group>"; };
 		45657D3A83AAC0F83C5B0AF8 /* RecreateMemoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecreateMemoryScreen.swift; sourceTree = "<group>"; };
 		4743A2C01ADB537F1C09C936 /* LovedOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovedOne.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		60A0E50012CA9AE4A31A1211 /* GradientExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientExtensions.swift; sourceTree = "<group>"; };
 		62E6A1FBE861ADAD12EC3CCB /* Companion3DScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companion3DScreen.swift; sourceTree = "<group>"; };
 		703289C37FBC942DC255FC64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		77988D857C9502DB62E60C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		783C790D4ADC358D0FD0C542 /* CompanionMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionMessage.swift; sourceTree = "<group>"; };
 		799755AA0B5CEE6E81AE3E04 /* SceneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneService.swift; sourceTree = "<group>"; };
 		82CE683EF42E06415482B77F /* SelectPersonScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPersonScreen.swift; sourceTree = "<group>"; };
@@ -80,6 +86,7 @@
 				3A04CFFD157DD246093143D5 /* Extensions */,
 				355D635DDF93AC25075ABFDD /* Models */,
 				3D046B95BC8A4078948CF950 /* Navigation */,
+				620DCCBA9A7D59BE222981EF /* Resources */,
 				08257579F989361DD7FFC94B /* Screens */,
 				F869F7939BAC3FACC60FFBD3 /* Services */,
 				A7984F6711AEE23253BD7507 /* Shared */,
@@ -152,6 +159,16 @@
 				62E6A1FBE861ADAD12EC3CCB /* Companion3DScreen.swift */,
 			);
 			path = Companion3D;
+			sourceTree = "<group>";
+		};
+		620DCCBA9A7D59BE222981EF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				77988D857C9502DB62E60C70 /* Assets.xcassets */,
+				02687768C924A7793F818C98 /* companion.scn */,
+				1AAA1AFE011DB57889F40F26 /* model_texture.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		633315F38AFECDCEA04265EE /* Onboarding */ = {
@@ -259,6 +276,7 @@
 			buildConfigurationList = 47C8F24B0A1AE6A31B151C4E /* Build configuration list for PBXNativeTarget "ArtiMind" */;
 			buildPhases = (
 				4FFB0D7C9EBFEE845D3F600F /* Sources */,
+				BB8309921D77AF31DF213F66 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -304,6 +322,19 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB8309921D77AF31DF213F66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4F4856EEF099C08009B18CD /* Assets.xcassets in Resources */,
+				013CF135AC7575923B315024 /* companion.scn in Resources */,
+				BED8A322F74CBE2B411F1A72 /* model_texture.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4FFB0D7C9EBFEE845D3F600F /* Sources */ = {

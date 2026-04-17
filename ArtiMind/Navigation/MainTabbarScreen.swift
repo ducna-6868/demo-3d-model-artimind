@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MainTabbarScreen: View {
-    @State private var selectedTab: AppTab = .home
+    @State private var selectedTab: AppTab = .lovedOne
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -13,12 +13,12 @@ struct MainTabbarScreen: View {
                 Label(AppTab.home.title, systemImage: AppTab.home.icon)
             }
 
-            Tab(value: .lovedOnes) {
+            Tab(value: .lovedOne) {
                 NavigationStack {
                     LovedOnesListScreen()
                 }
             } label: {
-                Label(AppTab.lovedOnes.title, systemImage: AppTab.lovedOnes.icon)
+                Label(AppTab.lovedOne.title, systemImage: AppTab.lovedOne.icon)
             }
 
             Tab(value: .settings) {

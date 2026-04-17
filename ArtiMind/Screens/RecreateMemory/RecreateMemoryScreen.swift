@@ -18,7 +18,7 @@ struct RecreateMemoryScreen: View {
 
     var body: some View {
         ZStack {
-            LinearGradient.warmBackground
+            Color.appBackground
                 .ignoresSafeArea()
 
             ScrollView {
@@ -47,7 +47,7 @@ struct RecreateMemoryScreen: View {
                             .foregroundStyle(.primary)
                             .padding(.horizontal, 24)
 
-                        GlassCard(cornerRadius: 20) {
+                        GlassCard {
                             VStack(spacing: 16) {
                                 if lovedOne.memoryMedia.isEmpty {
                                     // Empty state with + button
@@ -140,7 +140,7 @@ struct RecreateMemoryScreen: View {
                             .foregroundStyle(.primary)
                             .padding(.horizontal, 24)
 
-                        GlassCard(cornerRadius: 20) {
+                        GlassCard {
                             TextEditor(text: $lovedOne.memoryText)
                                 .focused($isTextFocused)
                                 .frame(minHeight: 140)

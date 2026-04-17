@@ -16,8 +16,7 @@ struct UploadPhotoScreen: View {
 
     var body: some View {
         ZStack {
-            LinearGradient.warmBackground
-                .ignoresSafeArea()
+            Color.appBackground.ignoresSafeArea()
 
             ScrollView {
                 VStack(spacing: 28) {
@@ -155,14 +154,21 @@ struct UploadPhotoScreen: View {
         let faces = await FaceDetectionService.detectFaces(in: image)
         lovedOne.detectedFaces = faces
 
-        switch faces.count {
-        case 0:
-            showNoFaceAlert = true
-        case 1:
+        if faces.count > 1 {
+            navigateToSelectPerson = true
+        } else {
+            // Demo mode: always proceed even if no face detected
+            // Use the full photo as the face reference
+            if faces.isEmpty {
+                let mockFace = DetectedFace(
+                    image: image,
+                    bounds: CGRect(origin: .zero, size: CGSize(width: image.size.width, height: image.size.height)),
+                    index: 0
+                )
+                lovedOne.detectedFaces = [mockFace]
+            }
             lovedOne.selectedFaceIndex = 0
             navigateToVoiceSelect = true
-        default:
-            navigateToSelectPerson = true
         }
     }
 }

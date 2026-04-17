@@ -2,7 +2,7 @@ import SwiftUI
 
 enum AppTab: String, CaseIterable, Identifiable {
     case home
-    case lovedOnes
+    case lovedOne
     case settings
 
     var id: String { rawValue }
@@ -10,7 +10,7 @@ enum AppTab: String, CaseIterable, Identifiable {
     var title: String {
         switch self {
         case .home: return "Home"
-        case .lovedOnes: return "Loved Ones"
+        case .lovedOne: return "Loved One"
         case .settings: return "Settings"
         }
     }
@@ -18,7 +18,7 @@ enum AppTab: String, CaseIterable, Identifiable {
     var icon: String {
         switch self {
         case .home: return "house.fill"
-        case .lovedOnes: return "heart.fill"
+        case .lovedOne: return "heart.fill"
         case .settings: return "gearshape.fill"
         }
     }

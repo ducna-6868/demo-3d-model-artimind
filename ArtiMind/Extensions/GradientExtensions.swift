@@ -1,5 +1,15 @@
 import SwiftUI
 
+// MARK: - Theme Colors
+
+extension Color {
+    static let appBackground = Color(red: 0.07, green: 0.07, blue: 0.09)
+    static let cardDark = Color(red: 0.12, green: 0.12, blue: 0.14)
+    static let cardDarker = Color(red: 0.09, green: 0.09, blue: 0.11)
+    static let goldAccent = Color(red: 1.0, green: 0.82, blue: 0.20)
+    static let warmWhite = Color(red: 0.95, green: 0.93, blue: 0.88)
+}
+
 extension LinearGradient {
     static var pastelBackground: LinearGradient {
         LinearGradient(
@@ -16,9 +26,9 @@ extension LinearGradient {
     static var warmBackground: LinearGradient {
         LinearGradient(
             colors: [
-                Color(red: 1.0, green: 0.93, blue: 0.88),
-                Color(red: 0.98, green: 0.88, blue: 0.92),
-                Color(red: 0.95, green: 0.90, blue: 1.0)
+                Color(red: 0.14, green: 0.12, blue: 0.10),
+                Color(red: 0.10, green: 0.09, blue: 0.08),
+                Color(red: 0.07, green: 0.07, blue: 0.09)
             ],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
@@ -43,6 +53,17 @@ extension LinearGradient {
                 Color(red: 0.05, green: 0.03, blue: 0.12),
                 Color(red: 0.10, green: 0.06, blue: 0.20),
                 Color(red: 0.03, green: 0.08, blue: 0.15)
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
+
+    static var heroCard: LinearGradient {
+        LinearGradient(
+            colors: [
+                Color(red: 0.15, green: 0.14, blue: 0.18),
+                Color(red: 0.10, green: 0.10, blue: 0.13)
             ],
             startPoint: .top,
             endPoint: .bottom

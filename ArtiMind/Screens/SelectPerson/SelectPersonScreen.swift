@@ -16,7 +16,7 @@ struct SelectPersonScreen: View {
 
     var body: some View {
         ZStack {
-            LinearGradient.warmBackground
+            Color.appBackground
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {

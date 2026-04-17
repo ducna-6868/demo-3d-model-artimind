@@ -2,14 +2,12 @@ import SwiftUI
 
 struct HomeScreen: View {
     @Environment(AppState.self) private var appState
-    @State private var navigateToUpload = false
 
     var body: some View {
         ZStack {
-            LinearGradient.pastelBackground
-                .ignoresSafeArea()
+            Color.appBackground.ignoresSafeArea()
 
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 24) {
                     // Header
                     HStack(spacing: 12) {
@@ -17,7 +15,7 @@ struct HomeScreen: View {
                             .font(.title)
                             .foregroundStyle(
                                 LinearGradient(
-                                    colors: [.purple, .indigo],
+                                    colors: [Color.goldAccent, .orange],
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
@@ -26,7 +24,7 @@ struct HomeScreen: View {
                         Text("ArtiMind")
                             .font(.largeTitle)
                             .fontWeight(.bold)
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(.white)
 
                         Spacer()
                     }
@@ -35,76 +33,47 @@ struct HomeScreen: View {
 
                     // Hero Card
                     NavigationLink(destination: UploadPhotoScreen()) {
-                        GlassCard(cornerRadius: 24) {
-                            VStack(alignment: .leading, spacing: 16) {
-                                HStack {
-                                    Image(systemName: "sparkles")
-                                        .font(.title2)
-                                        .foregroundStyle(.purple)
-                                    Text("Create Companion")
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                        .foregroundStyle(.primary)
-                                    Spacer()
-                                }
-
-                                Text("Transform a photo into a living, breathing 3D companion that speaks with warmth and love.")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                                    .fixedSize(horizontal: false, vertical: true)
-
-                                HStack {
-                                    Image(systemName: "sparkles")
-                                    Text("Start Creating")
-                                        .fontWeight(.medium)
-                                }
-                                .font(.subheadline)
-                                .foregroundStyle(.white)
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 12)
-                                .glassBackground(
-                                    backgroundColor: .purple,
-                                    opacity: 0.8,
-                                    shape: .rounded(14),
-                                    interactive: true
-                                )
+                        VStack(alignment: .leading, spacing: 16) {
+                            HStack {
+                                Image(systemName: "sparkles")
+                                    .font(.title2)
+                                    .foregroundStyle(Color.goldAccent)
+                                Text("Create Companion")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.white)
+                                Spacer()
                             }
+
+                            Text("Transform a photo into a living, breathing 3D companion that speaks with warmth and love.")
+                                .font(.subheadline)
+                                .foregroundStyle(.gray)
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            HStack {
+                                Image(systemName: "sparkles")
+                                Text("Start Creating")
+                                    .fontWeight(.medium)
+                            }
+                            .font(.subheadline)
+                            .foregroundStyle(.black)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 12)
+                            .background(Color.goldAccent, in: RoundedRectangle(cornerRadius: 14))
                         }
+                        .padding(20)
+                        .background(
+                            RoundedRectangle(cornerRadius: 24)
+                                .fill(Color.cardDark)
+                        )
                         .padding(.horizontal, 20)
                     }
                     .buttonStyle(.plain)
 
                     // Stats Row
                     HStack(spacing: 12) {
-                        GlassCard(cornerRadius: 20) {
-                            VStack(alignment: .leading, spacing: 6) {
-                                Image(systemName: "waveform")
-                                    .font(.title2)
-                                    .foregroundStyle(.blue)
-                                Text("12 Voices")
-                                    .font(.headline)
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.primary)
-                                Text("Available")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-
-                        GlassCard(cornerRadius: 20) {
-                            VStack(alignment: .leading, spacing: 6) {
-                                Image(systemName: "cube.transparent")
-                                    .font(.title2)
-                                    .foregroundStyle(.indigo)
-                                Text("3D Model")
-                                    .font(.headline)
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.primary)
-                                Text("Powered")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
+                        StatCard(icon: "waveform", iconColor: .purple, title: "12 Voices", subtitle: "Available")
+                        StatCard(icon: "cube.transparent", iconColor: .cyan, title: "3D Model", subtitle: "Powered")
                     }
                     .padding(.horizontal, 20)
 
@@ -113,21 +82,23 @@ struct HomeScreen: View {
                         Text("Recent")
                             .font(.headline)
                             .fontWeight(.semibold)
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(.white)
                             .padding(.horizontal, 20)
 
-                        GlassCard(cornerRadius: 20) {
-                            VStack(spacing: 12) {
-                                Image(systemName: "clock.arrow.circlepath")
-                                    .font(.title)
-                                    .foregroundStyle(.tertiary)
-                                Text("No recent activity")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 16)
+                        VStack(spacing: 12) {
+                            Image(systemName: "clock.arrow.circlepath")
+                                .font(.title)
+                                .foregroundStyle(.gray.opacity(0.5))
+                            Text("No recent activity")
+                                .font(.subheadline)
+                                .foregroundStyle(.gray)
                         }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 24)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.cardDark)
+                        )
                         .padding(.horizontal, 20)
                     }
 
@@ -137,5 +108,34 @@ struct HomeScreen: View {
             }
         }
         .navigationBarHidden(true)
+    }
+}
+
+// MARK: - Stat Card
+
+private struct StatCard: View {
+    let icon: String
+    let iconColor: Color
+    let title: String
+    let subtitle: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Image(systemName: icon)
+                .font(.title2)
+                .foregroundStyle(iconColor)
+            Text(title)
+                .font(.headline.weight(.semibold))
+                .foregroundStyle(.white)
+            Text(subtitle)
+                .font(.caption)
+                .foregroundStyle(.gray)
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.cardDark)
+        )
     }
 }

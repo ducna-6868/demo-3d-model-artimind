@@ -15,7 +15,7 @@ targets:
     sources:
       - path: ArtiMind
         excludes:
-          - "Resources/**"
+          - "Resources/VoiceReference/**"
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.artimind.demo
       INFOPLIST_FILE: ArtiMind/Info.plist
@@ -27,9 +27,7 @@ targets:
       ENABLE_USER_SCRIPT_SANDBOXING: NO
       DEVELOPMENT_TEAM: ""
     resources:
-      - path: ArtiMind/Resources/Assets.xcassets
-        buildPhase: resources
-      - path: ArtiMind/Resources/riggedmesh.glb
-        buildPhase: resources
       - path: ArtiMind/Resources/VoiceReference
+        buildPhase: resources
+      - path: ArtiMind/Resources/companion.scn
         buildPhase: resources
